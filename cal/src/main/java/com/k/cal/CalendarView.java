@@ -11,7 +11,6 @@ import android.support.annotation.Nullable;
 import android.support.annotation.RequiresApi;
 import android.support.v4.content.ContextCompat;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.View;
 import android.view.animation.BounceInterpolator;
 import android.view.animation.LinearInterpolator;
@@ -93,8 +92,6 @@ public class CalendarView extends View {
         int dayOfMonthMax = calendar.getActualMaximum(Calendar.DAY_OF_MONTH);
         calendar.set(Calendar.DAY_OF_MONTH, dayOfMonthMax);
         weeks = calendar.get(Calendar.WEEK_OF_MONTH);
-        Log.d("API", String.format("  ====   weeks:%d ====%n ", weeks));
-        Log.d("API", "   cal:" + calendar);
 
         values = new String[weeks][7];
         for (int i = 0; i < weeks; i++) {
@@ -104,9 +101,7 @@ public class CalendarView extends View {
                 if (value == today) {
                     todayX = j;
                     todayY = i;
-                    Log.d("API", String.format("today x:%d   y:%d       value:%d", j, i, value));
                 }
-                Log.d("API", String.format("cal   x:%d, y:%d   value:%d", j, i, value));
             }
         }
 
@@ -215,7 +210,6 @@ public class CalendarView extends View {
         super.computeScroll();
         if (scroller.computeScrollOffset()) {
             scrollerCurrY = scroller.getCurrY();
-            Log.d("API", "   scroller curry :" + scroller.getCurrY());
             invalidate();
             updateHeight();
             requestLayout();
@@ -230,7 +224,6 @@ public class CalendarView extends View {
         } else {
             h = (int) (hTmp - (hTmp - cellSize) * t / (duration * 1f));
         }
-        Log.d("API", String.format("   update height    h:%d     hTmp:%d", h, hTmp));
     }
 
     private void startTodayAnimate() {
