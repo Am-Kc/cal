@@ -35,4 +35,4 @@
 ```
 
 ## preview
-![image](https://github.com/Am-Kc/cal/raw/b_readme/app/calendar.gif)
+![image](https://github.com/Am-Kc/cal/raw/master/app/calendar.gif)
